@@ -1,0 +1,7 @@
+*.o
+ui_*.*
+Makefile
+Minerva
+Minerva.pro.user
+.tmp
+moc_*.cpp
