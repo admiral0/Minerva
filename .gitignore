@@ -1,7 +1,8 @@
-*.o
-ui_*.*
+*/*.o
+*/ui_*.*
 Makefile
+libqcodeeditor.so*
 Minerva
 Minerva.pro.user
 .tmp
-moc_*.cpp
+*/moc_*.cpp
