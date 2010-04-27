@@ -7,4 +7,4 @@ SOURCES += main.cpp \
 HEADERS += minervawindow.h \
     minervadocument.h
 FORMS += minervawindow.ui
-LIBS += -lqscintilla2
+LIBS += 

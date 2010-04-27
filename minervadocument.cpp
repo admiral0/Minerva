@@ -8,7 +8,7 @@
 
 MinervaDocument::MinervaDocument(QTabWidget *dest, QFile *file){
     modified=false;
-    this->editor= new QsciScintilla;
+    //this->editor= new MinervaEditor();
     QWidget *page;
     page=new QWidget;
     if(file==0){
@@ -19,7 +19,7 @@ MinervaDocument::MinervaDocument(QTabWidget *dest, QFile *file){
             title=new QString(fi->fileName());
             QTextStream istr(file);
             QApplication::setOverrideCursor(Qt::WaitCursor);
-            editor->setText(istr.readAll());
+            //editor->setText(istr.readAll());
             QApplication::restoreOverrideCursor();
             file->close();
         }else{
@@ -35,16 +35,16 @@ MinervaDocument::MinervaDocument(QTabWidget *dest, QFile *file){
     dest->addTab(page,*title);
     QHBoxLayout *layout;
     layout=new QHBoxLayout();
-    layout->addWidget(editor);
+    //layout->addWidget(editor);
     page->setLayout(layout);
     dest->setCurrentWidget(page);
     widgetcontainer=dest;
-    connect(editor,SIGNAL(textChanged()),this,SLOT(textModified()));
+    //connect(editor,SIGNAL(textChanged()),this,SLOT(textModified()));
 }
 MinervaDocument::MinervaDocument(QWidget *dest, QFile *file){
     modified=false;
     container=0;
-    this->editor= new QsciScintilla;
+    //this->editor= new MinervaEditor();
     if(file==0){
         *title=tr("Untitled");
     }else{
@@ -53,7 +53,7 @@ MinervaDocument::MinervaDocument(QWidget *dest, QFile *file){
             title=new QString(fi->fileName());
             QTextStream istr(file);
             QApplication::setOverrideCursor(Qt::WaitCursor);
-            editor->setText(istr.readAll());
+            //editor->setText(istr.readAll());
             QApplication::restoreOverrideCursor();
             this->file=file;
             file->close();
@@ -68,12 +68,12 @@ MinervaDocument::MinervaDocument(QWidget *dest, QFile *file){
     }
     QHBoxLayout *layout;
     layout=new QHBoxLayout();
-    layout->addWidget(editor);
+    //layout->addWidget(editor);
     dest->setLayout(layout);
-    connect(editor,SIGNAL(textChanged()),this,SLOT(textModified()));
+    //connect(editor,SIGNAL(textChanged()),this,SLOT(textModified()));
 }
 MinervaDocument::~MinervaDocument(){
-    delete editor;
+    //delete editor;
     delete container;
     delete file;
     delete title;
@@ -91,7 +91,7 @@ void MinervaDocument::save(){
     if(file->open(QIODevice::WriteOnly)){
         QTextStream out(file);
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        out << editor->text();
+        //out << editor->text();
         QApplication::restoreOverrideCursor();
     }else{
         QMessageBox *warn;
@@ -115,7 +115,7 @@ void MinervaDocument::saveAs(){
         }
         QTextStream out(&file);
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        out << editor->text();
+        //out << editor->text();
         QApplication::restoreOverrideCursor();
         file.close();
     }else{

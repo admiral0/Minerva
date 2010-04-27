@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QFile>
 #include <QTabWidget>
-#include <Qsci/qsciscintilla.h>
 
 class MinervaDocument : public QObject
 {
@@ -25,7 +24,7 @@ public slots:
     void textModified();
 private:
     QWidget *container;
-    QsciScintilla *editor;
+    //MinervaEditor *editor;
     QString *title;
     QFile *file;
     QTabWidget *widgetcontainer;
