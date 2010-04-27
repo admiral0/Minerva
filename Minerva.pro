@@ -1,3 +1,3 @@
 QT += xml
-SUBDIRS += QCodeEdit src
+SUBDIRS += qcodeedit src
 TEMPLATE = subdirs
