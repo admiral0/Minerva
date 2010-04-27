@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/edyuk/!svn/ver/1045/trunk/3rdparty/qcodeedit2/lib/qnfa
+END
+light_vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/edyuk/!svn/ver/852/trunk/3rdparty/qcodeedit2/lib/qnfa/light_vector.h
+END
+qnfadefinition.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/edyuk/!svn/ver/1007/trunk/3rdparty/qcodeedit2/lib/qnfa/qnfadefinition.cpp
+END
+qnfadefinition.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/edyuk/!svn/ver/893/trunk/3rdparty/qcodeedit2/lib/qnfa/qnfadefinition.h
+END
+qnfa.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/edyuk/!svn/ver/1045/trunk/3rdparty/qcodeedit2/lib/qnfa/qnfa.cpp
+END
+xml2qnfa.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/edyuk/!svn/ver/1007/trunk/3rdparty/qcodeedit2/lib/qnfa/xml2qnfa.cpp
+END
+qnfa.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/edyuk/!svn/ver/823/trunk/3rdparty/qcodeedit2/lib/qnfa/qnfa.h
+END

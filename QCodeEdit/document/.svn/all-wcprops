@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/edyuk/!svn/ver/1053/trunk/3rdparty/qcodeedit2/lib/document
+END
+qdocumentcommand.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/edyuk/!svn/ver/1015/trunk/3rdparty/qcodeedit2/lib/document/qdocumentcommand.cpp
+END
+qdocumentbuffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/edyuk/!svn/ver/964/trunk/3rdparty/qcodeedit2/lib/document/qdocumentbuffer.h
+END
+qdocument.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/edyuk/!svn/ver/1053/trunk/3rdparty/qcodeedit2/lib/document/qdocument.cpp
+END
+qdocumentcursor.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/edyuk/!svn/ver/1003/trunk/3rdparty/qcodeedit2/lib/document/qdocumentcursor.h
+END
+qdocumentcommand.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/edyuk/!svn/ver/1003/trunk/3rdparty/qcodeedit2/lib/document/qdocumentcommand.h
+END
+qdocument.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/edyuk/!svn/ver/981/trunk/3rdparty/qcodeedit2/lib/document/qdocument.h
+END
+qdocumentline.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/edyuk/!svn/ver/993/trunk/3rdparty/qcodeedit2/lib/document/qdocumentline.cpp
+END
+qdocumentline.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/edyuk/!svn/ver/993/trunk/3rdparty/qcodeedit2/lib/document/qdocumentline.h
+END
+qdocumentcursor_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/edyuk/!svn/ver/1003/trunk/3rdparty/qcodeedit2/lib/document/qdocumentcursor_p.h
+END
+qdocument_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/edyuk/!svn/ver/1053/trunk/3rdparty/qcodeedit2/lib/document/qdocument_p.h
+END
+qdocumentsearch.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/edyuk/!svn/ver/949/trunk/3rdparty/qcodeedit2/lib/document/qdocumentsearch.cpp
+END
+qdocumentbuffer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/edyuk/!svn/ver/964/trunk/3rdparty/qcodeedit2/lib/document/qdocumentbuffer.cpp
+END
+qdocumentsearch.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/edyuk/!svn/ver/949/trunk/3rdparty/qcodeedit2/lib/document/qdocumentsearch.h
+END
+qdocumentline_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/edyuk/!svn/ver/993/trunk/3rdparty/qcodeedit2/lib/document/qdocumentline_p.h
+END
+qdocumentcursor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/edyuk/!svn/ver/1003/trunk/3rdparty/qcodeedit2/lib/document/qdocumentcursor.cpp
+END
