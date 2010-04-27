@@ -15,8 +15,8 @@ CONFIG += qnfa
 QT += xml
 
 UI_DIR = 
-MOC_DIR = .build
-OBJECTS_DIR = .build
+MOC_DIR = ../.build
+OBJECTS_DIR = ../.build
 
 # Input
 include(lib.pri)
