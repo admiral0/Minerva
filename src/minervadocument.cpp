@@ -2,28 +2,28 @@
 #include <QFileInfo>
 #include <QHBoxLayout>
 #include <QMessageBox>
-#include <QTextStream>
 #include <QApplication>
 #include <QFileDialog>
+#include <QAction>
 
 MinervaDocument::MinervaDocument(QTabWidget *dest, QFile *file){
     modified=false;
-    //this->editor= new MinervaEditor();
-    QWidget *page;
-    page=new QWidget;
+   editor= new QCodeEdit(dest);
+   setupEditor();
+
     if(file==0){
         title=new QString(tr("Untitled"));
     }else{
         if(file->open(QIODevice::ReadOnly)){
             QFileInfo *fi=new QFileInfo(*file);
             title=new QString(fi->fileName());
-            QTextStream istr(file);
             QApplication::setOverrideCursor(Qt::WaitCursor);
-            //editor->setText(istr.readAll());
+            editor->editor()->load(file->fileName());
             QApplication::restoreOverrideCursor();
             file->close();
         }else{
             QMessageBox *warn;
+            warn=new QMessageBox;
             warn->setWindowTitle(tr("Minerva"));
             warn->setText(tr("Cannot open %1").arg(file->fileName()));
             warn->setIcon(QMessageBox::Warning);
@@ -32,48 +32,13 @@ MinervaDocument::MinervaDocument(QTabWidget *dest, QFile *file){
         }
     }
 
-    dest->addTab(page,*title);
-    QHBoxLayout *layout;
-    layout=new QHBoxLayout();
-    //layout->addWidget(editor);
-    page->setLayout(layout);
-    dest->setCurrentWidget(page);
+    dest->addTab(editor->editor(), *title);
+    dest->setCurrentWidget(editor->editor());
     widgetcontainer=dest;
     //connect(editor,SIGNAL(textChanged()),this,SLOT(textModified()));
 }
-MinervaDocument::MinervaDocument(QWidget *dest, QFile *file){
-    modified=false;
-    container=0;
-    //this->editor= new MinervaEditor();
-    if(file==0){
-        *title=tr("Untitled");
-    }else{
-        if(file->open(QIODevice::ReadOnly)){
-            QFileInfo *fi=new QFileInfo(*file);
-            title=new QString(fi->fileName());
-            QTextStream istr(file);
-            QApplication::setOverrideCursor(Qt::WaitCursor);
-            //editor->setText(istr.readAll());
-            QApplication::restoreOverrideCursor();
-            this->file=file;
-            file->close();
-        }else{
-            QMessageBox *warn;
-            warn->setWindowTitle(tr("Minerva"));
-            warn->setText(tr("Cannot open %1").arg(file->fileName()));
-            warn->setIcon(QMessageBox::Warning);
-            warn->exec();
-            return;
-        }
-    }
-    QHBoxLayout *layout;
-    layout=new QHBoxLayout();
-    //layout->addWidget(editor);
-    dest->setLayout(layout);
-    //connect(editor,SIGNAL(textChanged()),this,SLOT(textModified()));
-}
 MinervaDocument::~MinervaDocument(){
-    //delete editor;
+    delete editor;
     delete container;
     delete file;
     delete title;
@@ -89,12 +54,12 @@ void MinervaDocument::save(){
         return;
     }
     if(file->open(QIODevice::WriteOnly)){
-        QTextStream out(file);
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        //out << editor->text();
+        editor->editor()->save(file->fileName());
         QApplication::restoreOverrideCursor();
     }else{
         QMessageBox *warn;
+        warn=new QMessageBox;
         warn->setWindowTitle(tr("Minerva"));
         warn->setText(tr("Cannot save %1").arg(file->fileName()));
         warn->setIcon(QMessageBox::Warning);
@@ -109,17 +74,17 @@ void MinervaDocument::saveAs(){
     if(file.open(QIODevice::WriteOnly)){
         this->file=&file;
         QFileInfo fi(file);
-        title=&(fi.fileName());
+        title=new QString(fi.fileName());
         if(this->widgetcontainer!=0){
             widgetcontainer->setTabText(widgetcontainer->currentIndex(),*title);
         }
-        QTextStream out(&file);
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        //out << editor->text();
+        editor->editor()->save(file.fileName());
         QApplication::restoreOverrideCursor();
         file.close();
     }else{
         QMessageBox *warn;
+        warn=new QMessageBox;
         warn->setWindowTitle(tr("Minerva"));
         warn->setText(tr("Cannot save %1").arg(file.fileName()));
         warn->setIcon(QMessageBox::Warning);
@@ -134,4 +99,20 @@ bool MinervaDocument::isModified(){
 
 QString MinervaDocument::getName(){
     return *(this->title);
+}
+void MinervaDocument::setupEditor(){
+    editor->addPanel("Line Mark Panel", QCodeEdit::West, true)->setShortcut(QKeySequence("F6"));
+
+    editor->addPanel("Line Number Panel", QCodeEdit::West, true)->setShortcut(QKeySequence("F11"));
+
+    editor->addPanel("Fold Panel", QCodeEdit::West, true)->setShortcut(QKeySequence("F9"));
+
+    editor->addPanel("Line Change Panel", QCodeEdit::West, true);
+
+    editor->addPanel("Status Panel", QCodeEdit::South, true);
+
+    editor->addPanel("Search Replace Panel", QCodeEdit::South);
+}
+QEditor* MinervaDocument::getEditor(){
+    return editor->editor();
 }

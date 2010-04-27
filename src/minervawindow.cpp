@@ -4,6 +4,7 @@
 
 MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MinervaWindow){
     ui->setupUi(this);
+    setCentralWidget(ui->documentTabs);
     connect(ui->actionNew,SIGNAL(triggered()),this,SLOT(newDocument()));
     connect(ui->action_Open,SIGNAL(triggered()),this,SLOT(openDocument()));
     connect(ui->actionExit,SIGNAL(triggered()),this,SLOT(close()));
@@ -11,9 +12,15 @@ MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::M
     connect(ui->actionSave_As,SIGNAL(triggered()),this,SLOT(saveDocumentAs()));
     connect(ui->actionAbout_Minerva,SIGNAL(triggered()),this,SLOT(about()));
     connect(ui->documentTabs,SIGNAL(tabCloseRequested(int)),this,SLOT(closeDocument(int)));
-
+    formats = new QFormatScheme("qxs/formats.qxf", this);
+    QDocument::setDefaultFormatScheme(formats);
+    QLineMarksInfoCenter::instance()->loadMarkTypes("qxs/marks.qxm");
+    languages = new QLanguageFactory(formats, this);
+    languages->addDefinitionPath("qxs");
     editors=new QList<MinervaDocument*>();
     newDocument();
+
+
 }
 MinervaWindow::~MinervaWindow(){
     delete ui;
@@ -27,6 +34,7 @@ void MinervaWindow::newDocument(){
 void MinervaWindow::openDocument(){
     QString path = QFileDialog::getOpenFileName(this);
     MinervaDocument *doc=new MinervaDocument(ui->documentTabs,new QFile(path));
+    languages->setLanguage(doc->getEditor(),path);
     editors->append(doc);
 }
 void MinervaWindow::saveDocument(){

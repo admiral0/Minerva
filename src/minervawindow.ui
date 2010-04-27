@@ -14,40 +14,42 @@
    <string>Minerva</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>-1</x>
-      <y>-2</y>
-      <width>681</width>
-      <height>381</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="MainLayout">
-     <item>
-      <widget class="QTabWidget" name="documentTabs">
-       <property name="minimumSize">
-        <size>
-         <width>15</width>
-         <height>15</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>10000</width>
-         <height>10000</height>
-        </size>
-       </property>
-       <property name="currentIndex">
-        <number>-1</number>
-       </property>
-       <property name="tabsClosable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">padding:0</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QTabWidget" name="documentTabs">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>10000</width>
+        <height>10000</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -55,7 +57,7 @@
      <x>0</x>
      <y>0</y>
      <width>685</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAbout">

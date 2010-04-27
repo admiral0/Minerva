@@ -1,5 +1,6 @@
 include(../lib/lib.pri)
 DESTDIR = ..
+INCLUDEPATH = ../qcodeedit ../qcodeedit/document
 QT += xml
 TARGET = Minerva
 TEMPLATE = app

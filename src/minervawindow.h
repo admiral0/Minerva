@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <QList>
 #include "minervadocument.h"
+#include "qformatscheme.h"
+#include "document/qdocument.h"
+#include "qlinemarksinfocenter.h"
+#include "qlanguagefactory.h"
 class QFile;
 namespace Ui {
     class MinervaWindow;
@@ -29,6 +33,9 @@ protected:
 private:
     QList<MinervaDocument*> *editors;
     Ui::MinervaWindow *ui;
+    QFormatScheme *formats;
+    QLanguageFactory *languages;
+
 
 };
 
