@@ -21,6 +21,7 @@ MinervaDocument::MinervaDocument(QTabWidget *dest, QFile *file){
             editor->editor()->load(file->fileName());
             QApplication::restoreOverrideCursor();
             file->close();
+	    this->file=file;
         }else{
             QMessageBox *warn;
             warn=new QMessageBox;
@@ -53,19 +54,9 @@ void MinervaDocument::save(){
         saveAs();
         return;
     }
-    if(file->open(QIODevice::WriteOnly)){
         QApplication::setOverrideCursor(Qt::WaitCursor);
         editor->editor()->save(file->fileName());
         QApplication::restoreOverrideCursor();
-    }else{
-        QMessageBox *warn;
-        warn=new QMessageBox;
-        warn->setWindowTitle(tr("Minerva"));
-        warn->setText(tr("Cannot save %1").arg(file->fileName()));
-        warn->setIcon(QMessageBox::Warning);
-        warn->exec();
-        return;
-    }
 
 }
 void MinervaDocument::saveAs(){
