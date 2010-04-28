@@ -1,5 +1,5 @@
-Minerva is a programmer's text editor made in Qt. It is released under GPLv3.
-To build follow these steps:
+Minerva is a programmer's text editor written in C++/Qt. It is released under GPLv3.
+To build and run follow these steps:
 	$ qmake
 	$ make	
 	$ ./run.sh
