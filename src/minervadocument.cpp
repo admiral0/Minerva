@@ -100,9 +100,10 @@ void MinervaDocument::setupEditor(){
 
     editor->addPanel("Line Change Panel", QCodeEdit::West, true);
 
-    editor->addPanel("Status Panel", QCodeEdit::South, true);
+    //editor->addPanel("Status Panel", QCodeEdit::South, true);
 
     editor->addPanel("Search Replace Panel", QCodeEdit::South);
+
 }
 QEditor* MinervaDocument::getEditor(){
     return editor->editor();
