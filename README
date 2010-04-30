@@ -3,5 +3,5 @@ To build and run follow these steps:
 	$ qmake
 	$ make	
 	$ ./run.sh
-
+Screenshot: minerva.png
 Edited with Minerva :)
