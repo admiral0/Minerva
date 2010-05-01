@@ -762,7 +762,6 @@ void QEditor::init(bool actions)
 		m_lineEndingsActions->addAction(tr("Old Mac"))->setData("mac");
 		
 		QList<QAction*> lle = m_lineEndingsActions->actions();
-		
 		foreach ( QAction *a, lle )
 		{
 			a->setCheckable(true);
@@ -773,7 +772,7 @@ void QEditor::init(bool actions)
 		
 		m_lineEndingsMenu->menuAction()->setObjectName("lineEndings");
 		addAction(m_lineEndingsMenu->menuAction(), "&Edit", "");
-		
+
 		/*
 		sep = new QAction(this);
 		sep->setSeparator(true);
@@ -3107,7 +3106,7 @@ void QEditor::mouseReleaseEvent(QMouseEvent *e)
 	
 	repaintCursor();
 	selectionChange();
-	
+
 	if ( flag(MaybeDrag) )
 	{
 		setFlag(MousePressed, false);
@@ -3115,7 +3114,7 @@ void QEditor::mouseReleaseEvent(QMouseEvent *e)
 		
 		m_cursor.clearSelection();
 	}
-	
+
 	if ( flag(MousePressed) )
 	{
 		setFlag(MousePressed, false);

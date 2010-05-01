@@ -31,6 +31,7 @@ MinervaDocument::MinervaDocument(QTabWidget *dest, QFile *file){
             warn->exec();
             return;
         }
+        connect(editor->editor(),SIGNAL(textEdited(QKeyEvent*)),this,SIGNAL(textChanged()));
     }
 
     dest->addTab(editor->editor(), *title);
