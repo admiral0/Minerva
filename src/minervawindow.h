@@ -18,6 +18,7 @@ class MinervaWindow : public QMainWindow {
 public:
     MinervaWindow(QWidget *parent = 0);
     ~MinervaWindow();
+    void openPath(QString*);
 
 public slots:
     void newDocument();

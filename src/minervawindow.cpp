@@ -18,7 +18,6 @@ MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::M
     languages = new QLanguageFactory(formats, this);
     languages->addDefinitionPath("qxs");
     editors=new QList<MinervaDocument*>();
-    newDocument();
 
 
 }
@@ -32,9 +31,15 @@ void MinervaWindow::newDocument(){
     editors->append(doc);
 }
 void MinervaWindow::openDocument(){
-    QString path = QFileDialog::getOpenFileName(this);
-    MinervaDocument *doc=new MinervaDocument(ui->documentTabs,new QFile(path));
-    languages->setLanguage(doc->getEditor(),path);
+    QString *path;
+    path=new QString(QFileDialog::getOpenFileName(this));
+    if(!path->isEmpty()){
+        openPath(path);
+    }
+}
+void MinervaWindow::openPath(QString *path){
+    MinervaDocument *doc=new MinervaDocument(ui->documentTabs,new QFile(*path));
+    languages->setLanguage(doc->getEditor(),*path);
     editors->append(doc);
 }
 void MinervaWindow::saveDocument(){
