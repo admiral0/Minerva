@@ -19,6 +19,7 @@ MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::M
     QLineMarksInfoCenter::instance()->loadMarkTypes("qxs/marks.qxm");
     languages = new QLanguageFactory(formats, this);
     languages->addDefinitionPath("qxs");
+    languages->addBundlePath("Bundles");
     editors=new QList<MinervaDocument*>();
 
 

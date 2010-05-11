@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QFile>
+#include <QDir>
 
 #include "../qlanguagedefinition.h"
 #include "../qlanguagefactory.h"
@@ -12,8 +13,8 @@ class BundleLoader : public QObject
 Q_OBJECT
 public:
     explicit BundleLoader(QObject *parent = 0);
-    static void load(QString& file, QLanguageFactory::LangData& data, QFormatScheme& format);
-    static void load(QFile& file, QLanguageFactory::LangData& data, QFormatScheme& format);
+    static void load(QString& file, QLanguageFactory::LangData *data, QFormatScheme *format);
+    static void load(QDir& file, QLanguageFactory::LangData *data, QFormatScheme *format);
 
 signals:
 

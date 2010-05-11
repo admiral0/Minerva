@@ -292,7 +292,7 @@ void QLanguageFactory::addDefinitionPath(const QString& path)
 {
 	QDir d(path);
 	
-	foreach ( QString f, d.entryList(QDir::Files | QDir::Readable) )
+        foreach ( QString f, d.entryList(QDir::Files | QDir::Readable) )
 	{
 		#ifdef QNFA_BUILD
 		if ( f.endsWith(".qnfa") )
@@ -314,14 +314,25 @@ void QLanguageFactory::addDefinitionPath(const QString& path)
 			//qDebug("%s : (%s | %s)", qPrintable(data.lang), qPrintable(data.mime), qPrintable(data.extensions.join(", ")));
 			addLanguage(data);
 			//addLanguageDefinition(new QNFADefinition(d.filePath(f), this));
-                  }else
+                  }
                   #endif
-                    if(f.endsWith(".plist")){
-                        //qDebug("loading bundle %s",qPrintable(f));
-
-                    }
 
 	}
+}
+/*!
+    \brief Reads Bundles in \a path
+  */
+void QLanguageFactory::addBundlePath(const QString &path){
+    QDir d(path);
+    foreach(QString bndl, d.entryList(QDir::Dirs | QDir::Readable)){
+        if(bndl.endsWith(".tmbundle")){
+            qDebug("Loading bundle %s",qPrintable( bndl));
+            LangData data;
+            QFormatScheme *scheme = m_defaultFormatScheme;
+            bndl=d.absolutePath()+QDir::separator()+bndl;
+            BundleLoader::load(bndl,&data,scheme);
+        }
+    }
 }
 
 /*! @} */

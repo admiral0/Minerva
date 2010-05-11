@@ -63,6 +63,7 @@ class QCE_EXPORT QLanguageFactory : public QObject
 		const LangData& languageData(const QString& lang);
 		
 		void addDefinitionPath(const QString& path);
+                void addBundlePath(const QString& path);
 		
 		inline QFormatScheme* defaultFormatScheme() const { return m_defaultFormatScheme; }
 		
