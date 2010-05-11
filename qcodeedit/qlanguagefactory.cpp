@@ -54,7 +54,7 @@
 #ifdef QNFA_BUILD
 #include "qnfadefinition.h"
 #endif
-
+#include "tmbundle/bundleloader.h"
 /*!
 	\brief Empty constructor
 */
@@ -314,8 +314,13 @@ void QLanguageFactory::addDefinitionPath(const QString& path)
 			//qDebug("%s : (%s | %s)", qPrintable(data.lang), qPrintable(data.mime), qPrintable(data.extensions.join(", ")));
 			addLanguage(data);
 			//addLanguageDefinition(new QNFADefinition(d.filePath(f), this));
-		}
-		#endif
+                  }else
+                  #endif
+                    if(f.endsWith(".plist")){
+                        //qDebug("loading bundle %s",qPrintable(f));
+
+                    }
+
 	}
 }
 
