@@ -1,9 +1,9 @@
-#include <QtGui/QApplication>
+#include "minervaapplication.h"
 #include "minervawindow.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    MinervaApplication a(argc, argv);
     a.setApplicationName(QObject::tr("Minerva"));
     a.setGraphicsSystem("raster");
     MinervaWindow w;

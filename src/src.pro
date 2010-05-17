@@ -1,4 +1,4 @@
-include(../lib/lib.pri)
+#include(../qcodeedit/lib.pri)
 DESTDIR = ..
 INCLUDEPATH = ../qcodeedit \
     ../qcodeedit/document
@@ -7,10 +7,15 @@ TARGET = Minerva
 TEMPLATE = app
 SOURCES += main.cpp \
     minervawindow.cpp \
-    minervadocument.cpp
-
+    minervadocument.cpp \
+    minervatabwidget.cpp \
+    minervasettings.cpp \
+    minervaapplication.cpp
 HEADERS += minervawindow.h \
-    minervadocument.h
+    minervadocument.h \
+    minervatabwidget.h \
+    minervasettings.h \
+    minervaapplication.h
 FORMS += minervawindow.ui
 LIBS += -L \
     .. \

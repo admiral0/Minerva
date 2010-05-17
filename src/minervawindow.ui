@@ -25,7 +25,7 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QTabWidget" name="documentTabs">
+     <widget class="MinervaTabWidget" name="documentTabs">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -152,6 +152,14 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MinervaTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>minervatabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
