@@ -1,4 +1,5 @@
 #include "minervatabwidget.h"
+#include "minervawindow.h"
 #include <QPushButton>
 MinervaTabWidget::MinervaTabWidget(QWidget *parent):QTabWidget(parent)
 {
@@ -7,5 +8,6 @@ MinervaTabWidget::MinervaTabWidget(QWidget *parent):QTabWidget(parent)
     QPushButton *settings=new QPushButton("Settings");
     setCornerWidget(newDoc,Qt::TopLeftCorner);
     setCornerWidget(settings);
+    connect(newDoc,SIGNAL(clicked()),MinervaWindow::instance(),SLOT(newDocument()));
 }
-//TODO settingstab and newDoc tab
+//TODO settingstab tab

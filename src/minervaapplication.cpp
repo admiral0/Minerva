@@ -9,6 +9,13 @@ MinervaApplication::MinervaApplication(int &argc,char** &argv) :
     settings=new MinervaSettings();
     window=new MinervaWindow();
     window->show();
+    if(argc>1){
+        for(int i=1;i<arguments().length();i++){
+            window->openPath(&arguments().at(i));
+        }
+    }else{
+        window->newDocument();
+    }
 }
 MinervaSettings* MinervaApplication::getSettings(){
         return settings;

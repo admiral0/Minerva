@@ -2,7 +2,9 @@
 #include "ui_minervawindow.h"
 #include <QtGui>
 
+MinervaWindow* MinervaWindow::window(0);
 MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MinervaWindow){
+    window=this;
     ui->setupUi(this);
     setCentralWidget(ui->documentTabs);
     connect(ui->actionNew,SIGNAL(triggered()),this,SLOT(newDocument()));
@@ -37,7 +39,7 @@ void MinervaWindow::openDocument(){
         openPath(path);
     }
 }
-void MinervaWindow::openPath(QString *path){
+void MinervaWindow::openPath(const QString *path){
     MinervaDocument *doc=new MinervaDocument(ui->documentTabs,new QFile(*path));
     languages->setLanguage(doc->getEditor(),*path);
     editors->append(doc);
@@ -72,9 +74,12 @@ void MinervaWindow::closeDocument(int nr){
             return;
 
     }
-    d=editors->takeAt(nr);
+    //BAD code
+    editors->removeAt(nr);
+    if(editors->length()<1){
+        newDocument();
+    }
     ui->documentTabs->removeTab(nr);
-    //delete d;
 }
 
 void MinervaWindow::closeEvent(QCloseEvent *event){
@@ -115,4 +120,8 @@ void MinervaWindow::changeEvent(QEvent *e)
     default:
         break;
     }
+}
+
+MinervaWindow* MinervaWindow::instance(){
+    return window;
 }

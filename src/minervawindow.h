@@ -18,9 +18,10 @@ class MinervaWindow : public QMainWindow {
 public:
     MinervaWindow(QWidget *parent = 0);
     ~MinervaWindow();
-    void openPath(QString*);
+    void openPath(const QString*);
 
 public slots:
+    static MinervaWindow* instance();
     void newDocument();
     void openDocument();
     void saveDocument();
@@ -36,6 +37,7 @@ private:
     Ui::MinervaWindow *ui;
     QFormatScheme *formats;
     QLanguageFactory *languages;
+    static MinervaWindow *window;
 
 
 };
