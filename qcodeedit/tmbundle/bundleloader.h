@@ -7,7 +7,7 @@
 
 #include "../qlanguagedefinition.h"
 #include "../qlanguagefactory.h"
-
+class QXmlStreamReader;
 class BundleLoader : public QObject
 {
 Q_OBJECT
@@ -19,6 +19,9 @@ public:
 signals:
 
 public slots:
+private:
+    static bool isType(QString name);
+    static QList<QVariant> readArray(QXmlStreamReader*);
 
 };
 
