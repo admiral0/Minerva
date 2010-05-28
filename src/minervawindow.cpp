@@ -19,7 +19,7 @@ MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::M
     QDocument::setDefaultFormatScheme(formats);
     QLineMarksInfoCenter::instance()->loadMarkTypes("qxs/marks.qxm");
     languages = new QLanguageFactory(formats, this);
-    languages->addDefinitionPath("qxs");
+    languages->addDefinitionPath(QString("%1/share/Minerva").arg(ROOTDIR));
     editors=new QList<MinervaDocument*>();
 
 
