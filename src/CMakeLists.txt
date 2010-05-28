@@ -34,6 +34,12 @@ QT4_WRAP_CPP(MOCS ${Minerva_MOCS})
 
 link_directories (${QCodeEdit_BINARY_DIR}) 
 
+configure_file (
+  "${Minerva_SOURCE_DIR}/minervaconfig.h.in"
+  "${Minerva_BINARY_DIR}/minervaconfig.h"
+  )
+
+
 add_executable ( minerva ${Minerva_SRCS} ${UIS} ${RSCS} ${TRS} ${MOCS} )
 target_link_libraries ( minerva qcodeedit  ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTXML_LIBRARY} )
 

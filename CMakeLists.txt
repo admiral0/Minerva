@@ -8,6 +8,10 @@ include_directories (
 	${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}
 	${QT_QTCORE_INCLUDE_DIR} ${QT_QTGUI_INCLUDE_DIR} ${QT_QTXML_INCLUDE_DIR}
 	)
+if( EXISTS "${Minerva_SOURCE_DIR}/.git")
+set (MINERVA_VERSION_EXT "\"git\"")
+endif( EXISTS "${Minerva_SOURCE_DIR}/.git")
+
 add_subdirectory( qcodeedit )
 add_subdirectory( src )
 
