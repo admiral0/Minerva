@@ -7,3 +7,6 @@ Minerva.pro.user
 .tmp
 */moc_*.cpp
 .build
+build
+*~
+.kdev4

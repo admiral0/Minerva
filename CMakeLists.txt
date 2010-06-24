@@ -43,8 +43,7 @@ set ( MINERVA_FILES qxs/cpp.qxf
 	qxs/php.qxf
 	qxs/pro.qxf)
 
-install ( FILES ${MINERVA_FILES} DESTINATION share/minerva/qxs )
-
+install( FILES $${MINERVA_FILES} DESTINATION share/minerva/qxs )
 #Package generation
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Minerva Text Editor")
 SET(CPACK_PACKAGE_VENDOR "admiral0")

@@ -109,5 +109,7 @@ QT4_WRAP_CPP(MOCS ${qcodeedit_MOCS})
 
 add_library ( qcodeedit SHARED ${qcodeedit_SRCS} ${UIS} ${RSCS} ${TRS} ${MOCS} )
 target_link_libraries ( qcodeedit  ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTXML_LIBRARY} )
-
-install ( TARGETS qcodeedit DESTINATION lib )
+set_target_properties(qcodeedit PROPERTIES
+			VERSION ${QCODEEDIT_VER_MAJOR}
+			SOVERSION "${QCODEEDIT_VER_MAJOR}.${QCODEEDIT_VER_MINOR}")
+install ( TARGETS qcodeedit  DESTINATION lib )
