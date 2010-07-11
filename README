@@ -1,7 +1,8 @@
 Minerva is a programmer's text editor written in C++/Qt. It is released under GPLv3.
 To build and run follow these steps:
-	$ qmake
-	$ make	
-	$ ./run.sh
+	$ mkdir build && cd build
+	$ cmake ..
+	$ make -j2
+	$ ./Minerva
+
 Screenshot: minerva.png
-Edited with Minerva :)

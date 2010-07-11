@@ -1,5 +1,6 @@
 #include "minervawindow.h"
 #include "ui_minervawindow.h"
+#include "minervaconfig.h"
 #include <QtGui>
 
 MinervaWindow* MinervaWindow::window(0);
@@ -18,8 +19,7 @@ MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::M
     QDocument::setDefaultFormatScheme(formats);
     QLineMarksInfoCenter::instance()->loadMarkTypes("qxs/marks.qxm");
     languages = new QLanguageFactory(formats, this);
-    languages->addDefinitionPath("qxs");
-    languages->addBundlePath("Bundles");
+    languages->addDefinitionPath(QString("%1/share/Minerva").arg(ROOTDIR));
     editors=new QList<MinervaDocument*>();
 
 
@@ -54,7 +54,10 @@ void MinervaWindow::saveDocumentAs(){
 }
 void MinervaWindow::about(){
        QMessageBox::about(this, tr("About Minerva"),
-                tr("<b>Minerva</b> is a basic (for now) text editor<br>"
+                "<center><b>Minerva</b> "+ \
+                QString("%1").arg(VERSION_MAJOR)+ "." + \
+                QString("%1").arg(VERSION_MINOR)+"."+ \
+                QString("%1").arg(VERSION_REV) + VERSION_EXT + tr("</center><br><br>A basic (for now) text editor<br>"
                    "developed using the Qt Framework by Nokia.<br>"
                    "Code is licensed under GPLv3.<br>"
                    "Copyright (c) 2010 Radu Andries"));
