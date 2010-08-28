@@ -18,7 +18,8 @@ add_subdirectory( lib )
 add_subdirectory( src )
 add_subdirectory(plugins)
 
-set ( MINERVA_FILES qxs/cpp.qxf
+set ( MINERVA_FILES 
+	qxs/cpp.qxf
 	qxs/css.qnfa
 	qxs/xml.qxf
 	qxs/css.qxf
@@ -45,7 +46,7 @@ set ( MINERVA_FILES qxs/cpp.qxf
 	qxs/php.qxf
 	qxs/pro.qxf)
 
-install( FILES $${MINERVA_FILES} DESTINATION share/minerva/qxs )
+install( FILES ${MINERVA_FILES} DESTINATION share/minerva/qxs )
 #Package generation
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Minerva Text Editor")
 SET(CPACK_PACKAGE_VENDOR "admiral0")

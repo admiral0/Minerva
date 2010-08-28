@@ -112,3 +112,4 @@ set_target_properties(qcodeedit PROPERTIES
 			VERSION ${QCODEEDIT_VER_MAJOR}
 			SOVERSION "${QCODEEDIT_VER_MAJOR}.${QCODEEDIT_VER_MINOR}")
 install ( TARGETS qcodeedit  DESTINATION lib )
+install ( FILES ${qcodeedit_MOCS} ${qcodeedit_HDRS} DESTINATION include/qcodeedit )

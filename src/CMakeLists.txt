@@ -37,4 +37,4 @@ add_executable ( minerva ${Minerva_SRCS} ${RSCS} ${TRS} ${MOCS} )
 target_link_libraries ( minerva qcodeedit libminerva  ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTXML_LIBRARY} )
 
 install ( TARGETS minerva DESTINATION bin )
-install ( FILES ${Minerva_MOCS} DESTINATION include )
+install ( FILES ${Minerva_MOCS} ${Minerva_HDRS} DESTINATION include/minerva )
