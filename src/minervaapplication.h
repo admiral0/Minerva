@@ -19,5 +19,6 @@ private:
     MinervaSettings *settings;
     MinervaWindow *window;
     static MinervaApplication *app;
+    void loadPlugins();
 };
 #endif // MINERVAAPPLICATION_H

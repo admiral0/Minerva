@@ -1,5 +1,4 @@
 project(QCodeEdit)
-set ( LIBRARY_OUTPUT_PATH .. )
 include_directories (
         ${QCodeEdit_SOURCE_DIR}
         ${QCodeEdit_BINARY_DIR}
