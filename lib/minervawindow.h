@@ -28,6 +28,7 @@ public slots:
     void saveDocumentAs();
     void about();
     void closeDocument(int nr);
+    QList<MinervaDocument*> getEditors();
 protected:
     void closeEvent(QCloseEvent *event);
     void changeEvent(QEvent *event);

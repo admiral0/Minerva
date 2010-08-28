@@ -17,6 +17,7 @@ public:
     bool isModified();
     QString getName();
     QEditor* getEditor();
+    
 
 signals:
     void textChanged();

@@ -16,6 +16,7 @@ endif( EXISTS "${Minerva_SOURCE_DIR}/.git")
 add_subdirectory( qcodeedit )
 add_subdirectory( lib )
 add_subdirectory( src )
+add_subdirectory(plugins)
 
 set ( MINERVA_FILES qxs/cpp.qxf
 	qxs/css.qnfa

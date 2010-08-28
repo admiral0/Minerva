@@ -129,3 +129,7 @@ void MinervaWindow::changeEvent(QEvent *e)
 MinervaWindow* MinervaWindow::instance(){
     return window;
 }
+QList< MinervaDocument* > MinervaWindow::getEditors()
+{
+  return *editors;
+}

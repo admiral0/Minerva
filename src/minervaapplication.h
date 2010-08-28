@@ -4,6 +4,7 @@
 #include <QApplication>
 #include "minervasettings.h"
 #include "minervawindow.h"
+#include <plugininterface.h>
 
 class MinervaApplication : public QApplication
 {
@@ -20,5 +21,6 @@ private:
     MinervaWindow *window;
     static MinervaApplication *app;
     void loadPlugins();
+    QList<PluginInterface*> *plugins;
 };
 #endif // MINERVAAPPLICATION_H
