@@ -3,6 +3,15 @@ To build and run follow these steps:
 	$ mkdir build && cd build
 	$ cmake ..
 	$ make -j2
-	$ ./Minerva
+	$ ./src/minerva
+
+To install:
+	$ mkdir build && cd build
+	$ cmake ..
+	$ make -j2
+	$ sudo make install
+Or if you prefer a deb:
+	$ cmake -DCPACK_GENERATORS=DEB ..
+	$ make package
 
 Screenshot: minerva.png
