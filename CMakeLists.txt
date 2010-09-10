@@ -17,6 +17,7 @@ add_subdirectory( qcodeedit )
 add_subdirectory( lib )
 add_subdirectory( src )
 add_subdirectory(plugins)
+add_subdirectory(resources)
 
 set ( MINERVA_FILES 
 	qxs/cpp.qxf
@@ -59,4 +60,3 @@ SET(CPACK_PACKAGE_INSTALL_DIRECTORY "CMake ${CMake_VERSION_MAJOR}.${CMake_VERSIO
 SET(CPACK_PACKAGE_EXECUTABLES "minerva" "Minerva Editor")
 SET(CPACK_PACKAGE_CONTACT "Radu Andries <admiral0@tuxfamily.org>")
 include (CPack)
-
