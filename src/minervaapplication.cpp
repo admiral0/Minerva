@@ -39,7 +39,7 @@ void MinervaApplication::loadPlugins()
   qDebug()<<"Loading Plugins";
   foreach(QString plugin , plugins){
     QPluginLoader ldr;
-    ldr.setFileName(pluginsdir.absolutePath()+plugin);
+    ldr.setFileName(pluginsdir.absolutePath()+QDir::separator()+plugin);
     QObject *obj= ldr.instance();
     PluginInterface *ifc=qobject_cast<PluginInterface*>(obj);
     if(ifc!=0){

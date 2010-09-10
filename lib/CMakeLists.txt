@@ -15,7 +15,6 @@ set (	libminerva_SRCS
 	pluginsettings.cpp 
 	minervadocument.cpp 
 	minervatabwidget.cpp
-	plugininterface.cpp
 	minervawindow.cpp)
 set ( libminerva_iUIS
 	minervawindow.ui
@@ -30,4 +29,4 @@ set_target_properties  ( libminerva PROPERTIES
 			VERSION ${MINERVA_VER_MAJOR}
 			SOVERSION "${MINERVA_VER_MAJOR}.${MINERVA_VER_MINOR}" )
 install (TARGETS libminerva DESTINATION lib )
-install (FILES ${libminerva_HDRS} DESTINATION include/minerva )
+install (FILES ${libminerva_HDRS} ${libminerva_BINARY_DIR}/ui_plugins.h DESTINATION include/minerva )

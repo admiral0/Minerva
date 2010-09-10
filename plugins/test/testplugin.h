@@ -17,26 +17,20 @@
 
 */
 
-#include "pluginsettings.h"
-PluginSettings::PluginSettings(QWidget* parent) : QWidget(parent), ui(new Ui::PluginConf)
-{
-  ui->setupUi(this);
-  setupList();
-  connect(ui->okButton,SIGNAL(released()),this,SLOT(aboutToClose()));
-}
-PluginSettings::~PluginSettings()
-{
-  delete ui;
-}
-void PluginSettings::aboutToClose()
-{
-  emit closed();
-  this->close();
-}
-void PluginSettings::setupList()
-{
-//TODO model-view stuff 
-}
+#ifndef TESTPLUGIN_H
+#define TESTPLUGIN_H
 
+#include "plugininterface.h"
+class TestPlugin :  public PluginInterface
+{
+  Q_INTERFACES(PluginInterface)
+public:
+    TestPlugin();
+    virtual ~TestPlugin();
+    virtual void start(MinervaWindow* window);
+    virtual void stop();
+    virtual QWidget* configure();
+    virtual QWidget* about();
+};
 
-
+#endif // TESTPLUGIN_H

@@ -19,17 +19,27 @@
 
 #ifndef PLUGININTERFACE_H
 #define PLUGININTERFACE_H
-#include <QObject>
-#include "minervawindow.h"
 
-class PluginInterface : public QObject
+#include <QtPlugin>
+
+QT_BEGIN_NAMESPACE
+class MinervaWindow;
+class QWidget;
+QT_END_NAMESPACE
+
+class PluginInterface 
 {
-  Q_OBJECT
 public:
-    PluginInterface();
     virtual ~PluginInterface();
     virtual void start(MinervaWindow *window);
     virtual void stop();
+    virtual QWidget* configure();
+    virtual QWidget* about();
 };
+QT_BEGIN_NAMESPACE
+
+Q_DECLARE_INTERFACE(PluginInterface,
+                    "org.admiral0.PluginInterface/1.0")
+QT_END_NAMESPACE
 
 #endif // PLUGININTERFACE_H

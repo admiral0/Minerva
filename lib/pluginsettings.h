@@ -32,6 +32,7 @@ public slots:
 signals:
     void closed();
 private:
+  void setupList();
   Ui::PluginConf *ui;
 };
 

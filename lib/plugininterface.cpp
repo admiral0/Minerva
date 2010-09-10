@@ -1,4 +1,5 @@
 #include "plugininterface.h"
+#include <QWidget>
 
 PluginInterface::PluginInterface()
 {
@@ -16,3 +17,12 @@ PluginInterface::~PluginInterface()
 {
 
 }
+QWidget * PluginInterface::about()
+{
+  return new QWidget();
+}
+QWidget * PluginInterface::configure()
+{
+  return new QWidget();
+}
+

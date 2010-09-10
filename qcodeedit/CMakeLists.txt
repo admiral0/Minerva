@@ -6,28 +6,57 @@ include_directories (
 	${QCodeEdit_SOURCE_DIR}/language
 	${QCodeEdit_SOURCE_DIR}/widgets
 	${QCodeEdit_SOURCE_DIR}/qnfa)
+set (qcodeedit_document_HDRS 
+	document/qdocument_p.h
+	document/qdocument.h
+	document/qdocumentcommand.h
+	document/qdocumentcursor.h
+	document/qdocumentline.h
+	document/qdocumentsearch.h)
+
 set ( qcodeedit_HDRS
+	qeditor.h
+	qeditorfactory.h
+	qeditsession.h
+	qpanellayout.h
+	qformatscheme.h
+	qlinemarksinfocenter.h
+	qreliablefilewatch.h
+	document/qdocument.h
+	qcodecompletionengine.h
+	qlanguagefactory.h
 	qce-config.h
 	qeditorinputbindinginterface.h
 	qeditorinputbinding.h
 	qcodeedit.h
-	qformatfactory.h
-	document/qdocument_p.h
-	document/qdocumentcommand.h
-	document/qdocumentcursor.h
-	document/qdocumentline.h
-	document/qdocumentsearch.h
+	qformatfactory.h	
 	qlanguagedefinition.h
-	widgets/qcalltip.h
+	)
+set (qcodeedit_widgets_HDRS 
+widgets/qcalltip.h
+widgets/qpanel.h
+	widgets/qlinenumberpanel.h
+	widgets/qlinemarkpanel.h
+	widgets/qlinechangepanel.h
+	widgets/qfoldpanel.h
+	widgets/qstatuspanel.h
+	widgets/qgotolinepanel.h
+	widgets/qsearchreplacepanel.h
+	widgets/qgotolinedialog.h
+	widgets/qeditconfig.h
+	widgets/qformatconfig.h
+	widgets/qsimplecolorpicker.h)
+set (qcodeedit_qnfa_HDRS
+	qnfa/qnfa.h
+	qnfa/qnfadefinition.h
+	qnfa/light_vector.h )
+set (qcodeedit_snippets_HDRS
 	snippets/qsnippet.h
 	snippets/qsnippet_p.h
 	snippets/qsnippetpatternloader.h
 	snippets/qsnippetbinding.h
-	qnfa/qnfa.h
-	qnfa/qnfadefinition.h
-	qnfa/light_vector.h
-	)
-
+	snippets/qsnippetmanager.h
+	snippets/qsnippetedit.h)
 set ( qcodeedit_SRCS
 	qeditor.cpp
 	qeditorfactory.cpp
@@ -112,4 +141,8 @@ set_target_properties(qcodeedit PROPERTIES
 			VERSION ${QCODEEDIT_VER_MAJOR}
 			SOVERSION "${QCODEEDIT_VER_MAJOR}.${QCODEEDIT_VER_MINOR}")
 install ( TARGETS qcodeedit  DESTINATION lib )
-install ( FILES ${qcodeedit_MOCS} ${qcodeedit_HDRS} DESTINATION include/qcodeedit )
+install ( FILES ${qcodeedit_HDRS} DESTINATION include/qcodeedit )
+install ( FILES ${qcodeedit_widgets_HDRS} DESTINATION include/qcodeedit/widgets )
+install ( FILES ${qcodeedit_snippets_HDRS} DESTINATION include/qcodeedit/snippets )
+install ( FILES ${qcodeedit_qnfa_HDRS} DESTINATION include/qcodeedit/qnfa )
+install ( FILES ${qcodeedit_document_HDRS} DESTINATION include/qcodeedit/document )

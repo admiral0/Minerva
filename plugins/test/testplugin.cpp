@@ -17,26 +17,32 @@
 
 */
 
-#include "pluginsettings.h"
-PluginSettings::PluginSettings(QWidget* parent) : QWidget(parent), ui(new Ui::PluginConf)
+#include "testplugin.h"
+#include <QDebug>
+#include <minervawindow.h>
+void TestPlugin::start(MinervaWindow* window)
 {
-  ui->setupUi(this);
-  setupList();
-  connect(ui->okButton,SIGNAL(released()),this,SLOT(aboutToClose()));
+    window->about();
+    qDebug()<< "Started!";
 }
-PluginSettings::~PluginSettings()
+void TestPlugin::stop()
 {
-  delete ui;
+    
 }
-void PluginSettings::aboutToClose()
+TestPlugin::TestPlugin()
 {
-  emit closed();
-  this->close();
+  qDebug("Plugin invoked!");
 }
-void PluginSettings::setupList()
+TestPlugin::~TestPlugin()
 {
-//TODO model-view stuff 
-}
 
-
+}
+QWidget* TestPlugin::about()
+{
+    return new QWidget();
+}
+QWidget* TestPlugin::configure()
+{
+    return new QWidget();
+}
 
