@@ -6,17 +6,20 @@ include_directories(${libminerva_SOURCE_DIR}
 		    ${QCodeEdit_SOURCE_DIR}/document
 		    ${QCodeEdit_SOURCE_DIR})
 set (	libminerva_HDRS 
+	pluginsettings.h
 	minervadocument.h 
 	minervatabwidget.h  
 	plugininterface.h
 	minervawindow.h)
 set (	libminerva_SRCS 
+	pluginsettings.cpp 
 	minervadocument.cpp 
 	minervatabwidget.cpp
 	plugininterface.cpp
 	minervawindow.cpp)
 set ( libminerva_iUIS
 	minervawindow.ui
+	plugins.ui
 	)
 QT4_WRAP_UI(libminerva_UIS ${libminerva_iUIS})
 QT4_WRAP_CPP ( libminerva_MOCS ${libminerva_HDRS})

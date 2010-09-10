@@ -6,6 +6,7 @@
 MinervaWindow* MinervaWindow::window(0);
 MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MinervaWindow){
     window=this;
+    psettings=NULL;
     ui->setupUi(this);
     setCentralWidget(ui->documentTabs);
     connect(ui->actionNew,SIGNAL(triggered()),this,SLOT(newDocument()));
@@ -15,11 +16,12 @@ MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::M
     connect(ui->actionSave_As,SIGNAL(triggered()),this,SLOT(saveDocumentAs()));
     connect(ui->actionAbout_Minerva,SIGNAL(triggered()),this,SLOT(about()));
     connect(ui->documentTabs,SIGNAL(tabCloseRequested(int)),this,SLOT(closeDocument(int)));
-    formats = new QFormatScheme("qxs/formats.qxf", this);
+    connect(ui->actionPlugins,SIGNAL(triggered()),this,SLOT(openPluginsConfiguration()));
+    formats = new QFormatScheme(QString("%1/share/minerva/qxs/formats.qxf").arg(ROOTDIR), this);
     QDocument::setDefaultFormatScheme(formats);
-    QLineMarksInfoCenter::instance()->loadMarkTypes("qxs/marks.qxm");
+    QLineMarksInfoCenter::instance()->loadMarkTypes(QString("%1/share/minerva/qxs/marks.qxm").arg(ROOTDIR));
     languages = new QLanguageFactory(formats, this);
-    languages->addDefinitionPath(QString("%1/share/minerva").arg(ROOTDIR));
+    languages->addDefinitionPath(QString("%1/share/minerva/qxs").arg(ROOTDIR));
     editors=new QList<MinervaDocument*>();
 
 
@@ -132,4 +134,11 @@ MinervaWindow* MinervaWindow::instance(){
 QList< MinervaDocument* > MinervaWindow::getEditors()
 {
   return *editors;
+}
+void MinervaWindow::openPluginsConfiguration()
+{
+  if(psettings)
+    delete psettings;
+  psettings=new PluginSettings;
+  psettings->show();
 }

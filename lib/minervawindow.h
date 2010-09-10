@@ -8,6 +8,7 @@
 #include "document/qdocument.h"
 #include "qlinemarksinfocenter.h"
 #include "qlanguagefactory.h"
+#include "pluginsettings.h"
 class QFile;
 namespace Ui {
     class MinervaWindow;
@@ -28,6 +29,7 @@ public slots:
     void saveDocumentAs();
     void about();
     void closeDocument(int nr);
+    void openPluginsConfiguration();
     QList<MinervaDocument*> getEditors();
 protected:
     void closeEvent(QCloseEvent *event);
@@ -35,6 +37,7 @@ protected:
 
 private:
     QList<MinervaDocument*> *editors;
+    PluginSettings *psettings;
     Ui::MinervaWindow *ui;
     QFormatScheme *formats;
     QLanguageFactory *languages;

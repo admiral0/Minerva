@@ -57,7 +57,7 @@
      <x>0</x>
      <y>0</y>
      <width>685</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAbout">
@@ -81,7 +81,7 @@
     <property name="title">
      <string>Tools</string>
     </property>
-    <addaction name="actionLanguages"/>
+    <addaction name="actionPlugins"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTools"/>
@@ -145,9 +145,9 @@
     <string>Ctrl+Shift+S</string>
    </property>
   </action>
-  <action name="actionLanguages">
+  <action name="actionPlugins">
    <property name="text">
-    <string>Languages</string>
+    <string>Plugins...</string>
    </property>
   </action>
  </widget>
