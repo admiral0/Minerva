@@ -29,6 +29,10 @@ MinervaWindow::MinervaWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::M
 MinervaWindow::~MinervaWindow(){
     delete ui;
 }
+QTabWidget* MinervaWindow::getTabWidget()
+{
+  return ui->documentTabs;
+}
 
 
 void MinervaWindow::newDocument(){

@@ -20,6 +20,7 @@ public:
     MinervaWindow(QWidget *parent = 0);
     ~MinervaWindow();
     void openPath(const QString*);
+    QTabWidget* getTabWidget();
 
 public slots:
     static MinervaWindow* instance();
