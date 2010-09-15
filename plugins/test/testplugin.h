@@ -19,10 +19,12 @@
 
 #ifndef TESTPLUGIN_H
 #define TESTPLUGIN_H
+#include <QObject>
+#include <plugininterface.h>
 
-#include "plugininterface.h"
-class TestPlugin :  public PluginInterface
+class TestPlugin :  public QObject,public PluginInterface
 {
+  Q_OBJECT
   Q_INTERFACES(PluginInterface)
 public:
     TestPlugin();

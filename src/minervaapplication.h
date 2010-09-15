@@ -20,7 +20,6 @@ private:
     MinervaSettings *settings;
     MinervaWindow *window;
     static MinervaApplication *app;
-    void loadPlugins();
-    QList<PluginInterface*> *plugins;
+
 };
 #endif // MINERVAAPPLICATION_H

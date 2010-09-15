@@ -1,4 +1,4 @@
- /*
+/*
     <one line to give the program's name and a brief idea of what it does.>
     Copyright (C) <year>  <name of author>
 
@@ -14,32 +14,30 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 */
 
+#ifndef PLUGINLOADER_H
+#define PLUGINLOADER_H
 
-#ifndef PLUGININTERFACE_H
-#define PLUGININTERFACE_H
-
-#include <QtPlugin>
-
-QT_BEGIN_NAMESPACE
-class MinervaWindow;
-class QWidget;
-QT_END_NAMESPACE
-
-class PluginInterface 
+#include <QObject>
+#include <QStringList>
+#include "plugininterface.h"
+class QPluginLoader;
+class PluginLoader : public QObject
 {
+  Q_OBJECT
 public:
-    virtual ~PluginInterface()=0;
-    virtual void start(MinervaWindow *window)=0;
-    virtual void stop()=0;
-    virtual QWidget* configure()=0;
-    virtual QWidget* about()=0;
+      PluginLoader();
+      static PluginLoader* instance();
+      bool loadPlugin(QString lib);
+      bool loadPlugins(QString dir);
+      PluginInterface* getPlugin(QString name);
+      QStringList getPlugins();
+private:
+      QList<PluginInterface*> *plugins;
+      static PluginLoader* self;
+
 };
-QT_BEGIN_NAMESPACE
 
-Q_DECLARE_INTERFACE(PluginInterface,
-                    "org.admiral0.PluginInterface/1.0")
-QT_END_NAMESPACE
-
-#endif // PLUGININTERFACE_H
+#endif // PLUGINLOADER_H

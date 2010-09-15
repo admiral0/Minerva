@@ -20,6 +20,7 @@
 #include "testplugin.h"
 #include <QDebug>
 #include <minervawindow.h>
+
 void TestPlugin::start(MinervaWindow* window)
 {
     window->about();
@@ -45,4 +46,4 @@ QWidget* TestPlugin::configure()
 {
     return new QWidget();
 }
-
+Q_EXPORT_PLUGIN2(testplugin, TestPlugin);

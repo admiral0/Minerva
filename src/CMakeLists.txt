@@ -12,6 +12,7 @@ set ( Minerva_HDRS
 	)
 
 set ( Minerva_SRCS
+	pluginloader.cpp
 	main.cpp
 	minervasettings.cpp
 	minervaapplication.cpp
@@ -20,6 +21,7 @@ set ( Minerva_SRCS
 
 
 set ( Minerva_MOCS
+	pluginloader.h
 	minervasettings.h
 	minervaapplication.h
 	)
