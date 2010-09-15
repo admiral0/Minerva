@@ -9,5 +9,6 @@ int main(int argc, char *argv[])
     a.setApplicationName(QObject::tr("Minerva"));
     PluginLoader* ldr= PluginLoader::instance();
     ldr->loadPlugins(QString(ROOTDIR)+"/lib/minerva/plugins");
+    ldr->startAll();
     return a.exec();
 }

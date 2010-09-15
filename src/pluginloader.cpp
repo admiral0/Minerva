@@ -21,6 +21,7 @@
 #include <QDir>
 #include <QDebug>
 #include <QPluginLoader>
+#include <minervawindow.h>
 
 PluginLoader* PluginLoader::self(0);
 PluginLoader* PluginLoader::instance()
@@ -60,10 +61,19 @@ bool PluginLoader::loadPlugins(QString dir)
 {
 
   QDir pluginsdir(dir);
-  QStringList plugins=pluginsdir.entryList(QStringList() << QString("*.so"));
+  QStringList pluginss=pluginsdir.entryList(QStringList() << QString("*.so"));
   qDebug()<<"Loading Plugins in dir"<<pluginsdir.absolutePath();
-  foreach(QString plugin , plugins){
+  foreach(QString plugin , pluginss){
     loadPlugin(pluginsdir.absoluteFilePath(plugin));
   }
 }
+void PluginLoader::startAll()
+{
+  int j=plugins->length();
+  for(int i=0;i<j;i++){
+    PluginInterface *ifc= plugins->at(i);
+    ifc->start(MinervaWindow::instance());
+  }
+}
+
 

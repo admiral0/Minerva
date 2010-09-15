@@ -29,11 +29,14 @@ class PluginLoader : public QObject
   Q_OBJECT
 public:
       PluginLoader();
+      
       static PluginLoader* instance();
       bool loadPlugin(QString lib);
       bool loadPlugins(QString dir);
       PluginInterface* getPlugin(QString name);
       QStringList getPlugins();
+public slots:
+      void startAll();
 private:
       QList<PluginInterface*> *plugins;
       static PluginLoader* self;
